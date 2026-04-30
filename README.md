@@ -33,12 +33,14 @@ Screenshots are deferred until the frontend pass is finished. Placeholder for gr
 
 ## Docker / Cloud Run
 
-The repo includes a multi-stage `Dockerfile` and `output: "standalone"` in `next.config.mjs`. Build and run locally with Docker, or redeploy with:
+The repo includes a multi-stage `Dockerfile` and `output: "standalone"` in `next.config.mjs`.
 
-`gcloud run deploy denominator --source . --region asia-south1 --allow-unauthenticated --env-vars-file .gcloud-env.yaml --quiet`
+Redeploy from the repo root (writes gitignored `.gcloud-env.yaml` from `.env.local`, uses `--quiet` so gcloud does not block on prompts):
 
-Generate `.gcloud-env.yaml` (gitignored) from `.env.local` before deploy:
+`npm run deploy:gcloud`
+
+Manual equivalent:
 
 `node scripts/write-gcloud-env.mjs`
 
-(On Windows, use the same commands from PowerShell or cmd in the repo root.)
+`gcloud run deploy denominator --source . --region asia-south1 --allow-unauthenticated --env-vars-file .gcloud-env.yaml --quiet`
