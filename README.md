@@ -25,6 +25,8 @@ Screenshots are deferred until the frontend pass is finished. Placeholder for gr
 - React 19
 - Google Gemini (`@google/generative-ai`, model `gemini-3-flash-preview`) with SSE streaming
 - CSS design tokens (no UI framework)
+- Talking head with idle / thinking / speaking motion tied to chat and optional TTS
+- Web Speech dictation (mic) when the browser supports it, plus optional `speechSynthesis` for replies
 
 ## Docs for grading
 

@@ -3,9 +3,11 @@
 import { useState } from "react";
 import PersonaSwitcher from "@/components/PersonaSwitcher";
 import ChatInterface from "@/components/ChatInterface";
+import TalkingHead from "@/components/TalkingHead";
 
 export default function Home() {
   const [persona, setPersona] = useState("anshuman");
+  const [headPhase, setHeadPhase] = useState("idle");
 
   return (
     <main className="shell">
@@ -15,8 +17,19 @@ export default function Home() {
       </header>
 
       <div className="chat-shell">
-        <PersonaSwitcher activeId={persona} onSwitch={setPersona} />
-        <ChatInterface personaId={persona} />
+        <TalkingHead personaId={persona} phase={headPhase} />
+        <PersonaSwitcher
+          activeId={persona}
+          onSwitch={(id) => {
+            setPersona(id);
+            setHeadPhase("idle");
+          }}
+        />
+        <ChatInterface
+          key={persona}
+          personaId={persona}
+          onHeadPhaseChange={setHeadPhase}
+        />
       </div>
     </main>
   );
