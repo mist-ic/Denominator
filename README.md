@@ -4,11 +4,13 @@ A small Next.js chat app where you pick one of three instructor-style personas (
 
 ## Live demo
 
-Add your Cloud Run URL after you deploy (`gcloud run deploy` as in this repo’s plan).
+**https://denominator-411746695116.asia-south1.run.app**
+
+(GCP project `revsight-492123`, region `asia-south1`.)
 
 ## Screenshot
 
-Add a screenshot of the chat UI and persona switcher here after you capture one.
+Screenshots are deferred until the frontend pass is finished. Placeholder for grading assets here later.
 
 ## Setup
 
@@ -31,8 +33,12 @@ Add a screenshot of the chat UI and persona switcher here after you capture one.
 
 ## Docker / Cloud Run
 
-The repo includes a multi-stage `Dockerfile` and `output: "standalone"` in `next.config.mjs`. Build and run locally with Docker, or deploy with:
+The repo includes a multi-stage `Dockerfile` and `output: "standalone"` in `next.config.mjs`. Build and run locally with Docker, or redeploy with:
 
-`gcloud run deploy denominator --source . --region asia-south1 --allow-unauthenticated --set-env-vars GEMINI_API_KEY=$GEMINI_API_KEY`
+`gcloud run deploy denominator --source . --region asia-south1 --allow-unauthenticated --env-vars-file .gcloud-env.yaml --quiet`
 
-(On Windows, set the variable in your environment first or pass the value explicitly.)
+Generate `.gcloud-env.yaml` (gitignored) from `.env.local` before deploy:
+
+`node scripts/write-gcloud-env.mjs`
+
+(On Windows, use the same commands from PowerShell or cmd in the repo root.)
