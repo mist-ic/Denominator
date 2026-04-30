@@ -1,15 +1,17 @@
-import { Inter, Outfit } from "next/font/google";
+import { Cormorant_Garamond, Nunito } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-cormorant",
   display: "swap",
 });
 
-const outfit = Outfit({
+const nunito = Nunito({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-nunito",
   display: "swap",
 });
 
@@ -21,8 +23,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
-      <body>{children}</body>
+    <html
+      lang="en"
+      className={`${cormorant.variable} ${nunito.variable}`}
+    >
+      <body className="orchy-body">{children}</body>
     </html>
   );
 }

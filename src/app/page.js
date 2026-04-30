@@ -10,21 +10,38 @@ export default function Home() {
   const [headPhase, setHeadPhase] = useState("idle");
 
   return (
-    <main className="shell">
-      <header className="app-header">
+    <main className="shell orch-shell">
+      <header className="app-header orch-reveal orch-reveal-1">
+        <p className="app-overline">Scaler style prep personas</p>
         <h1>Denominator</h1>
-        <p>Pick an instructor voice. Powered by Gemini.</p>
+        <p className="app-tagline">
+          Chat with three instructor voices powered by Gemini. Switch tabs to
+          reset the thread.
+        </p>
+        <p className="app-meta">
+          Docs for grading: see{" "}
+          <a className="app-link" href="https://github.com/mist-ic/Denominator/blob/master/prompts.md">
+            prompts.md
+          </a>{" "}
+          and{" "}
+          <a className="app-link" href="https://github.com/mist-ic/Denominator/blob/master/reflection.md">
+            reflection.md
+          </a>
+          .
+        </p>
       </header>
 
-      <div className="chat-shell">
-        <TalkingHead personaId={persona} phase={headPhase} />
-        <PersonaSwitcher
-          activeId={persona}
-          onSwitch={(id) => {
-            setPersona(id);
-            setHeadPhase("idle");
-          }}
-        />
+      <div className="chat-shell orch-reveal orch-reveal-2">
+        <div className="chat-stage">
+          <TalkingHead key={persona} personaId={persona} phase={headPhase} />
+          <PersonaSwitcher
+            activeId={persona}
+            onSwitch={(id) => {
+              setPersona(id);
+              setHeadPhase("idle");
+            }}
+          />
+        </div>
         <ChatInterface
           key={persona}
           personaId={persona}

@@ -6,11 +6,19 @@ A small Next.js chat app where you pick one of three instructor-style personas (
 
 **https://denominator-411746695116.asia-south1.run.app**
 
-(GCP project `revsight-492123`, region `asia-south1`.)
+(GCP project `revsight-492123`, region `asia-south1`. Redeploy after local changes with `npm run deploy:gcloud`.)
 
-## Screenshot
+## Screenshots
 
-Screenshots are deferred until the frontend pass is finished. Placeholder for grading assets here later.
+Representative UI captures in the same Orchy-inspired dark wash, cream/ink/lavender palette, and glass chat shell as the app. The running UI is the source of truth.
+
+### Desktop width
+
+![Desktop style reference](./readme/screenshots/desktop-ui.png)
+
+### Mobile width
+
+![Mobile style reference](./readme/screenshots/mobile-ui.png)
 
 ## Setup
 
@@ -24,9 +32,18 @@ Screenshots are deferred until the frontend pass is finished. Placeholder for gr
 - Next.js (App Router)
 - React 19
 - Google Gemini (`@google/generative-ai`, model `gemini-3-flash-preview`) with SSE streaming
-- CSS design tokens (no UI framework)
+- OrchyPage-inspired UI: Cormorant Garamond + Nunito, oklch tokens (cream / ink / lavender / rose), wash layers, staggered `orch-rise` reveals, petal-style idle on the talking head
+- CSS design tokens only (no UI framework)
 - Talking head with idle / thinking / speaking motion tied to chat and optional TTS
 - Web Speech dictation (mic) when the browser supports it, plus optional `speechSynthesis` for replies
+
+## Persona images
+
+Default avatars are generated initials on a gradient (`public/personas/*.png`). To regenerate them:
+
+`powershell -ExecutionPolicy Bypass -File scripts/render-persona-pngs.ps1`
+
+Swap in real headshots later by replacing those files (same names).
 
 ## Docs for grading
 

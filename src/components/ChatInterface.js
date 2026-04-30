@@ -330,6 +330,16 @@ export default function ChatInterface({ personaId, onHeadPhaseChange }) {
         className="messages"
         style={{ "--persona-accent": personaAccent }}
       >
+        {messages.length === 0 && !streaming ? (
+          <div className="messages-empty">
+            <p className="messages-empty-title">Start here</p>
+            <p className="messages-empty-hint">
+              Tap a suggestion chip, type a message
+              {speechInOk ? ", or use the mic" : ""}. Voice replies: speaker
+              icon (when your browser supports it).
+            </p>
+          </div>
+        ) : null}
         {messages.map((m, i) => {
           const isUser = m.role === "user";
           if (!isUser && m.content === "" && showTyping) return null;

@@ -6,6 +6,8 @@ The GIGO principle showed up immediately in prompt design, not in React state. E
 
 What also worked was keeping the MVP scope honest. A persona switcher that clears history, suggestion chips only on an empty thread, and a typing indicator reads as intentional polish without needing a full design system or auth. Dark styling with glassmorphism is a few CSS variables and blur, not a component library. For grading, the artifact that matters alongside the UI is documentation: `prompts.md` makes the reasoning legible to a reviewer, and the README ties setup to deployment.
 
+Tone is part of product definition too. The high-energy persona was easy to oversteer into sounding rude in a demo, so we iterated on constraints and few-shots until it stayed punchy without punching down. Small wording changes in constraints mattered more than tweaking model parameters.
+
 If I extended this after submission, I would add automated eval hooks: a handful of fixed user prompts per persona and a simple rubric check (length, refusal behavior, banned phrases). I would also revisit model choice over time because the best demo model is not always the best production model when latency variance changes. Voice features are tempting, but only after the text loop is boringly reliable.
 
 Overall, the project is a compact reminder that “AI app” quality is mostly product definition: who is speaking, what they refuse, and what proof you give the model through examples. The engineering is there to serve that definition, not the other way around.

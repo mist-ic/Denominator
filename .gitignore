@@ -42,4 +42,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-Docs
+# internal folder (case-sensitive): only root "Docs"
+/Docs/
